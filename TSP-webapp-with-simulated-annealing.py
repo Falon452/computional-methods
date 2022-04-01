@@ -12,7 +12,7 @@ import pandas as pd
 #      2. pip install -v https://github.com/pallets/werkzeug/archive/refs/tags/2.0.1.tar.gz
 
 
-# -------- globals
+# initial setting
 X = []
 Y = []
 N_POINTS = 12
@@ -614,4 +614,4 @@ def update_graphs(points_type, swap_type, n_points, n_groups, n_epochs, n_iter, 
 
 if __name__ == '__main__':
     main()
-    app.run_server(debug=True)
+    app.run_server()
