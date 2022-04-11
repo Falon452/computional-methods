@@ -1,0 +1,193 @@
+<ImageScreen>:
+
+    img:image_to_solve
+    path:image_path
+    temp:temperature
+    cool:cooling
+    iter_to_cool:iterations_to_cool
+    max_iter:max_iterations
+    sbutton:solve_button
+    FloatLayout:
+        canvas:
+            Color:
+                rgb: 0.93, 0.96, 0.97
+
+            Rectangle:
+                size: self.size
+
+        BoxLayout:
+            canvas:
+                Color:
+                    rgb: 0.51, 0.77, 0.74
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+
+            orientation: 'horizontal'
+            padding: 10
+            spacing: 10
+            size_hint: 1, None
+            pos_hint: {'top': 1}
+            height: 100
+
+            Label:
+                text_size: self.width, None
+                text: 'Sudoku solver'
+                font_size: '30dp'
+
+            Button:
+                text: 'Set\nPath'
+                background_color: 0, 0.43, 0.47
+                background_normal: ''
+                size_hint: 0.5, 0.7
+                pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+                on_press: root.upload()
+
+            TextInput:
+                id: image_path
+                text: 'sudoku_images/sudoku2.txt'
+                size_hint: 0.5, 0.7
+                pos_hint: {'center_y': 0.5}
+
+            Button:
+                text: 'Set\nTemperature'
+                background_color: 0, 0.43, 0.47
+                background_normal: ''
+                size_hint: 0.5, 0.7
+                pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+                on_press: root.set_temperature()
+
+            TextInput:
+                id: temperature
+                text: '1500'
+                size_hint: 0.5, 0.7
+                pos_hint: {'center_y': 0.5}
+
+            Button:
+                text: 'Set\nCooling'
+                background_color: 0, 0.43, 0.47
+                background_normal: ''
+                size_hint: 0.5, 0.7
+                pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+                on_press: root.set_cooling()
+
+            TextInput:
+                id: cooling
+                text: '0.99'
+                size_hint: 0.5, 0.7
+                pos_hint: {'center_y': 0.5}
+
+            Button:
+                text: 'Set\nMax \n Iterations'
+                background_color: 0, 0.43, 0.47
+                background_normal: ''
+                size_hint: 0.5, 0.7
+                pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+                on_press: root.set_max_iterations()
+
+            TextInput:
+                id: max_iterations
+                text: '50000'
+                size_hint: 0.5, 0.7
+                pos_hint: {'center_y': 0.5}
+
+            Button:
+                text: 'Set\nIterations \n to cool'
+                background_color: 0, 0.43, 0.47
+                background_normal: ''
+                size_hint: 0.5, 0.7
+                pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+                on_press: root.set_iterations_to_cool()
+
+            TextInput:
+                id: iterations_to_cool
+                text: '5'
+                size_hint: 0.5, 0.7
+                pos_hint: {'center_y': 0.5}
+
+
+
+        BoxLayout:
+            orientation: 'vertical'
+            padding: 10
+            spacing: 10
+            size_hint: 1, 0.8
+            pos_hint: {'top': 0.8}
+
+            Image:
+                id: image_to_solve
+                source: 'sudoku_images/suza.jpg'
+                size_hint: 0.6, 0.6
+                pos_hint: {'center_x':0.5}
+
+            Button:
+                id: solve_button
+                text: 'Solve'
+                background_color: 0.89, 0.59, 0.47
+                background_normal: ''
+                size_hint: 0.3, 0.1
+                pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+                on_press: root.solve()
+
+            Button:
+                id: reset_button
+                text: 'Reset'
+                background_color: 0.89, 0.59, 0.47
+                background_normal: ''
+                size_hint: 0.3, 0.1
+                pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+                on_press: root.reset()
+
+
+<StartScreen>:
+    FloatLayout:
+        canvas:
+            Color:
+                rgb: 0.93, 0.96, 0.97
+
+            Rectangle:
+                size: self.size
+
+        BoxLayout:
+            canvas:
+                Color:
+                    rgb: 0.51, 0.77, 0.74
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+
+            orientation: 'horizontal'
+            padding: 10
+            spacing: 10
+            size_hint: 1, None
+            pos_hint: {'top': 1}
+            height: 100
+
+            Label:
+                text_size: self.width, None
+                text: 'Sudoku solver'
+                font_size: '30dp'
+
+            Button:
+                text: 'Start'
+                background_color: 0, 0.43, 0.47
+                background_normal: ''
+                size_hint: 0.5, 0.7
+                pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+                on_press: root.start_program()
+
+
+        BoxLayout:
+            padding: 10
+            size_hint: 1, 0.8
+            pos_hint: {'top': 0.8}
+
+
+            Label:
+                color: 0, 0.43, 0.47
+                text_size: self.width, None
+                text: 'Hello! Welcome in sudoku solver app :)!'
+                font_size: '20dp'
+                halign: 'center'
+                pos_hint: {'center_y': 0.7}
+
