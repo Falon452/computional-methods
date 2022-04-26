@@ -1,0 +1,183 @@
+https://en.wikipedia.org/wiki/Orthogonal_frequency-division_multiple_access
+Orthogonal frequency-division multiple access - Wikipedia
+Orthogonal frequency-division multiple access
+From Wikipedia, the free encyclopedia
+Jump to navigation
+Jump to search
+Multi-user version of OFDM digital modulation
+This article needs additional citations for verification. Please help improve this article by adding citations to reliable sources. Unsourced material may be challenged and removed.Find sources: "Orthogonal frequency-division multiple access" – news · newspapers · books · scholar · JSTOR (August 2018) (Learn how and when to remove this template message)
+Multiplexing
+Analog modulation
+AM
+FM
+PM
+QAM
+SM
+SSB
+Circuit mode(constant bandwidth)
+TDM
+FDM / WDM
+SDMA
+Polarization
+Spatial
+OAM
+Statistical multiplexing(variable bandwidth)
+Packet switching
+Dynamic TDMA
+FHSS
+DSSS
+OFDMA
+SC-FDM
+MC-SS
+Related topics
+Channel access methods
+Medium access control
+vte
+Orthogonal frequency-division multiple access (OFDMA) is a multi-user version of the popular orthogonal frequency-division multiplexing (OFDM) digital modulation scheme. Multiple access is achieved in OFDMA by assigning subsets of subcarriers to individual users. This allows simultaneous low-data-rate transmission from several users.
+Contents
+1 Comparisons
+1.1 Advantages
+1.2 Disadvantages
+2 Characteristics and principles of operation
+3 Usage
+4 See also
+5 References
+6 External links
+Comparisons[edit]
+OFDMA is often compared to the combination of OFDM with statistical time-division multiplexing. The advantages and disadvantages summarized below are further discussed in the Characteristics and principles of operation section. See also the list of OFDM key features.
+Advantages[edit]
+Allows simultaneous low-data-rate transmission from several users.
+Pulsed carrier can be avoided.
+Lower maximal transmission power for low-data-rate users.
+Shorter delay and constant delay.
+Contention-based multiple access (collision avoidance) is simplified.
+Further improves OFDM robustness to fading and interference.
+Combat narrow-band interference.
+Flexibility of deployment across various frequency bands with little needed modification to the air interface.[1]
+Averaging interferences from neighboring cells, using different basic carrier permutations between users in different cells.
+Interferences within the cell are averaged by using allocation with cyclic permutations.
+Enables single-frequency network coverage, where coverage problem exists and gives excellent coverage.
+Offers frequency diversity by spreading the carriers all over the used spectrum.
+Allows per-channel or per-subchannel power.
+Disadvantages[edit]
+Higher sensitivity to frequency offsets and phase noise.[1]
+Asynchronous data communication services such as web access are characterised by short communication bursts at high data rate. Few users in a base station cell are transferring data simultaneously at low constant data rate.
+The complex OFDM electronics, including the FFT algorithm and forward error correction, are constantly active, thus consuming power, independent of the data rate, while OFDM combined with data packet scheduling may allow FFT algorithm to hibernate at times.
+The OFDM diversity gain and resistance to frequency-selective fading may partly be lost if very few sub-carriers are assigned to each user, and if the same carrier is used in every OFDM symbol. Adaptive sub-carrier assignment based on fast feedback information about the channel, or sub-carrier frequency hopping, is therefore desirable.
+Dealing with co-channel interference from nearby cells is more complex in OFDM than in CDMA. It would require dynamic channel allocation with advanced coordination among adjacent base stations.
+The fast channel feedback information and adaptive sub-carrier assignment is more complex than CDMA fast power control.
+Characteristics and principles of operation[edit]
+Based on feedback information about the channel conditions, adaptive user-to-subcarrier assignment can be achieved.[2] If the assignment is done sufficiently fast, this further improves the OFDM robustness to fast fading and narrow-band cochannel interference, and makes it possible to achieve even better system spectral efficiency.
+Different numbers of sub-carriers can be assigned to different users, in view to support differentiated quality of service (QoS), i.e. to control the data rate and error probability individually for each user.
+OFDMA can be seen as an alternative to combining OFDM with time-division multiple access (TDMA) or time-domain statistical multiplexing communication. Low-data-rate users can send continuously with low transmission power instead of using a "pulsed" high-power carrier. Constant delay, and shorter delay, can be achieved.
+OFDMA can also be described as a combination of frequency-domain and time-domain multiple access, where the resources are partitioned in the time–frequency space, and slots are assigned along the OFDM symbol index, as well as OFDM sub-carrier index.
+OFDMA is considered as highly suitable for broadband wireless networks, due to advantages including scalability and use of multiple antennas (MIMO)-friendliness, and ability to take advantage of channel frequency selectivity.[1]
+In spectrum sensing cognitive radio, OFDMA is a possible approach to filling free radio frequency bands adaptively. Timo A. Weiss and Friedrich K. Jondral of the University of Karlsruhe proposed a spectrum pooling system in which free bands sensed by nodes were immediately filled by OFDMA subbands.
+Usage[edit]
+OFDMA is used in:
+the mobility mode of the IEEE 802.16 Wireless MAN standard, commonly referred to as WiMAX,
+the wireless LAN (WLAN) standard IEEE 802.11ax,
+the IEEE 802.20 mobile Wireless MAN standard, commonly referred to as MBWA,
+MoCA 2.0,
+the downlink of the 3GPP Long-Term Evolution (LTE) fourth-generation mobile broadband standard. The radio interface was formerly named High Speed OFDM Packet Access (HSOPA), now named Evolved UMTS Terrestrial Radio Access (E-UTRA).
+the downlink and the uplink of the 3GPP 5G New Radio (5G NR) fifth-generation mobile network standard. 5G NR is the successor to LTE.
+the Qualcomm Flarion Technologies Mobile Flash-OFDM
+the now defunct Qualcomm/3GPP2 Ultra Mobile Broadband (UMB) project, intended as a successor of CDMA2000, but replaced by LTE.
+OFDMA is also a candidate access method for the IEEE 802.22 Wireless Regional Area Networks (WRAN), a cognitive radio technology which uses white spaces in the television (TV) frequency spectrum, and the proposed access method for DECT-5G specification which aims to fulfill IMT-2020 requirements for high-throughput mobile broadband (eMMB) and ultra reliable low latency (URLLC) applications.
+OFDMA subcarriers
+See also[edit]
+Code-division multiple access
+Frequency-division multiple access
+Time-division multiple access
+Single-carrier FDMA (SC-FDMA), a.k.a. linearly precoded OFDMA (LP-OFDMA)
+3GPP Long-Term Evolution
+WiMAX
+WiBro
+References[edit]
+^ a b c Hujun Yin and Siavash Alamouti (August 2007). "OFDMA: A Broadband Wireless Access Technology". IEEE Sarnoff Symposium, 2006. IEEE: 1–4. doi:10.1109/SARNOF.2006.4534773.
+^ Guowang Miao; Guocong Song (2014). Energy and spectrum efficient wireless network design. Cambridge University Press. ISBN 1-107-03988-6.
+External links[edit]
+Orthogonal Frequency Division Multiple Access: is it the multiple access system of the future?, S. Srikanth, V. Kumaran, C. Manikandan et al., AU-KBC Research Center, Anna University, India.
+Short Introduction to OFDM – Tutorial written by Prof. Debbah, head of the Alcatel-Lucent Chair on flexible radio.
+vteChannel access methods and media access controlChannel-basedFDMA
+FDM
+OFDMA
+SC-FDMA
+WDM
+WDMA
+TDMA
+MF-TDMA
+STDMA
+CDMA
+W-CDMA
+TD-CDMA
+TD-SCDMA
+DS-CDMA
+FH-CDMA
+MC-CDMA
+SDMA
+HC-SDMA
+PDMA
+PAMA
+Packet-basedCollision recovery
+ALOHA
+Slotted ALOHA
+R-ALOHA
+AX.25
+CSMA/CD
+Collision avoidance
+MACA
+MACAW
+CSMA
+CSMA/CA
+DCF
+PCF
+HCF
+CSMA/CARP
+Collision-free
+Token Ring
+Token bus
+MS-ALOHA
+Delay and disruption tolerant
+MANET
+VANET
+DTN
+Dynamic Source Routing
+Duplexing methods
+TDD
+FDD
+Retrieved from "https://en.wikipedia.org/w/index.php?title=Orthogonal_frequency-division_multiple_access&oldid=1056735156"
+Categories: Channel access methodsHidden categories: Articles with short descriptionShort description matches WikidataArticles needing additional references from August 2018All articles needing additional references
+Navigation menu
+Personal tools
+Not logged inTalkContributionsCreate accountLog in
+Namespaces
+ArticleTalk
+English
+Views
+ReadEditView history
+More
+Search
+Navigation
+Main pageContentsCurrent eventsRandom articleAbout WikipediaContact usDonate
+Contribute
+HelpLearn to editCommunity portalRecent changesUpload file
+Tools
+What links hereRelated changesUpload fileSpecial pagesPermanent linkPage informationCite this pageWikidata item
+Print/export
+Download as PDFPrintable version
+Languages
+CatalàEestiEspañolفارسیFrançaisItaliano日本語PolskiРусскийУкраїнська中文
+Edit links
+This page was last edited on 23 November 2021, at 07:20 (UTC).
+Text is available under the Creative Commons Attribution-ShareAlike License 3.0;
+additional terms may apply.
+By using this site, you agree to the Terms of Use and Privacy Policy. Wikipedia® is a registered trademark of the Wikimedia Foundation, Inc., a non-profit organization.
+Privacy policy
+About Wikipedia
+Disclaimers
+Contact Wikipedia
+Mobile view
+Developers
+Statistics
+Cookie statement

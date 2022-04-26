@@ -1,0 +1,1182 @@
+https://en.wikipedia.org/wiki/Software_maintenance
+Software maintenance - Wikipedia
+Software maintenance
+From Wikipedia, the free encyclopedia
+Jump to navigation
+Jump to search
+Modification of a software product after delivery
+This article has multiple issues. Please help improve it or discuss these issues on the talk page. (Learn how and when to remove these template messages)
+This article has an unclear citation style. The references used may be made clearer with a different or consistent style of citation and footnoting. (September 2010) (Learn how and when to remove this template message)
+This article needs additional citations for verification. Please help improve this article by adding citations to reliable sources. Unsourced material may be challenged and removed.Find sources: "Software maintenance" – news · newspapers · books · scholar · JSTOR (January 2015) (Learn how and when to remove this template message)
+(Learn how and when to remove this template message)
+Part of a series onSoftware development
+Core activities
+Processes
+Requirements
+Design
+Construction
+Testing
+Debugging
+Deployment
+Maintenance
+Paradigms and models
+Software engineering
+Agile
+Cleanroom
+Incremental
+Prototyping
+Spiral
+V model
+Waterfall
+Methodologies and frameworks
+ASD
+DevOps
+DAD
+DSDM
+FDD
+IID
+Kanban
+Lean SD
+LeSS
+MDD
+MSF
+PSP
+RAD
+RUP
+SAFe
+Scrum
+SEMAT
+TSP
+OpenUP
+UP
+XP
+Supporting disciplines
+Configuration management
+Documentation
+Software quality assurance
+Project management
+User experience
+Practices
+ATDD
+BDD
+CCO
+CI
+CD
+DDD
+PP
+SBE
+Stand-up
+TDD
+Tools
+Compiler
+Debugger
+Profiler
+GUI designer
+Modeling
+IDE
+Build automation
+Release automation
+Infrastructure as code
+Testing
+Standards and Bodies of Knowledge
+BABOK
+CMMI
+IEEE standards
+ISO 9001
+ISO/IEC standards
+PMBOK
+SWEBOK
+ITIL
+IREB
+Glossaries
+Artificial intelligence
+Computer science
+Electrical and electronics engineering
+Outlines
+Outline of software development
+vte
+Software maintenance in software engineering is the modification of a software product after delivery to correct faults, to improve performance or other attributes.[1][2]
+A common perception of maintenance is that it merely involves fixing defects. However, one study indicated that over 80% of maintenance effort is used for non-corrective actions.[3] This perception is perpetuated by users submitting problem reports that in reality are functionality enhancements to the system.[citation needed] More recent studies put the bug-fixing proportion closer to 21%.[4]
+Contents
+1 History
+2 Importance of software maintenance
+3 Software maintenance planning
+4 Software maintenance processes
+5 Categories of software maintenance
+6 Maintenance factors
+7 Maintenance debt
+8 See also
+9 References
+10 Further reading
+11 External links
+History[edit]
+Software maintenance and evolution of systems was first addressed by Meir M. Lehman in 1969. Over a period of twenty years, his research led to the formulation of Lehman's Laws (Lehman 1997). Key findings of his research conclude that maintenance is really evolutionary development and that maintenance decisions are aided by understanding what happens to systems (and software) over time. Lehman demonstrated that systems continue to evolve over time. As they evolve, they grow more complex unless some action such as code refactoring is taken to reduce the complexity.
+In the late 1970s, a famous and widely cited survey study by Lientz and Swanson, exposed the very high fraction of life-cycle costs that were being expended on maintenance.
+The survey showed that around 75% of the maintenance effort was on the first two types, and error correction consumed about 21%. Many subsequent studies suggest a similar problem magnitude. Studies show that contribution of end users is crucial during the new requirement data gathering and analysis. This is the main cause of any problem during software evolution and maintenance. Software maintenance is important because it consumes a large part of the overall lifecycle costs and also the inability to change software quickly and reliably means that business opportunities are lost.
+[5]
+[6]
+[7]
+Importance of software maintenance[edit]
+The key software maintenance issues are both managerial and technical. Key management issues are: alignment with customer priorities, staffing, which organization does maintenance, estimating costs. Key technical issues are: limited understanding, impact analysis, testing, maintainability measurement.
+Software maintenance is a very broad activity that includes error correction, enhancements of capabilities, deletion of obsolete capabilities, and optimization. Because change is inevitable, mechanisms must be developed for evaluation, controlling and making modifications.
+So any work done to change the software after it is in operation is considered to be maintenance work.
+The purpose is to preserve the value of software over the time. The value can be enhanced by expanding the customer base, meeting additional requirements, becoming easier to
+use, more efficient and employing newer technology. Maintenance may span for 20 years,[citation needed] whereas development may be 1–2 years.[citation needed]
+Software maintenance planning[edit]
+An integral part of software is maintenance, which requires an accurate maintenance plan to be constructed during the software development. It should specify how users will request modifications or report problems. The budget should include resource and cost estimates, and a new decision should be addressed for the development of every new system feature and its quality objectives. The software maintenance, which can last for 5+ years (or even decades) after the development process, calls for an effective plan which can address the scope of software maintenance, the tailoring of the post delivery/deployment process, the designation of who will provide maintenance, and an estimate of the life-cycle costs.
+Software maintenance processes[edit]
+This section describes the six software maintenance processes as:
+The implementation process contains software preparation and transition activities, such as the conception and creation of the maintenance plan; the preparation for handling problems identified during development; and the follow-up on product configuration management.
+The problem and modification analysis process, which is executed once the application has become the responsibility of the maintenance group. The maintenance programmer must analyze each request, confirm it (by reproducing the situation) and check its validity, investigate it and propose a solution, document the request and the solution proposal, and finally, obtain all the required authorizations to apply the modifications.
+The process considering the implementation of the modification itself.
+The process acceptance of the modification, by confirming the modified work with the individual who submitted the request in order to make sure the modification provided a solution.
+The migration process (platform migration, for example) is exceptional, and is not part of daily maintenance tasks. If the software must be ported to another platform without any change in functionality, this process will be used and a maintenance project team is likely to be assigned to this task.
+Finally, the last maintenance process, also an event which does not occur on a daily basis, is the retirement of a piece of software.
+There are a number of processes, activities, and practices that are unique to maintainers, for example:
+Transition: a controlled and coordinated sequence of activities during which a system is transferred progressively from the developer to the maintainer
+Service Level Agreements (SLAs) and specialized (domain-specific) maintenance contracts negotiated by maintainers
+Modification Request and Problem Report Help Desk: a problem-handling process used by maintainers to prioritize, document, and route the requests they receive
+Categories of software maintenance[edit]
+E.B. Swanson initially identified three categories of maintenance: corrective, adaptive, and perfective.[8] The IEEE 1219 standard was superseded in June 2010 by P14764.[9]
+These have since been updated and ISO/IEC 14764 presents:
+Corrective maintenance: Reactive modification of a software product performed after delivery to correct discovered problems. Corrective maintenance can be automated with automatic bug fixing.
+Adaptive maintenance: Modification of a software product performed after delivery to keep a software product usable in a changed or changing environment.
+Perfective maintenance: Modification of a software product after delivery to improve performance or maintainability.
+Preventive maintenance: Modification of a software product after delivery to detect and correct latent faults in the software product before they become effective faults.
+There is also a notion of pre-delivery/pre-release maintenance which is all the good things you do to lower the total cost of ownership of the software.
+Things like compliance with coding standards that includes software maintainability goals. The management of coupling and cohesion of the software.
+The attainment of software supportability goals (SAE JA1004, JA1005 and JA1006 for example). Some academic institutions[who?] are carrying out research to quantify the cost to ongoing software maintenance due to the lack of resources such as design documents and system/software comprehension training and resources (multiply costs by approx. 1.5-2.0 where there is no design data available).
+Maintenance factors[edit]
+Impact of key adjustment factors on maintenance (sorted in order of maximum positive impact)
+Maintenance Factors
+Plus Range
+Maintenance specialists
+35%
+High staff experience
+34%
+Table-driven variables and data
+33%
+Low complexity of base code
+32%
+Y2K and special search engines
+30%
+Code restructuring tools
+29%
+Re-engineering tools
+27%
+High level programming languages
+25%
+Reverse engineering tools
+23%
+Complexity analysis tools
+20%
+Defect tracking tools
+20%
+Y2K “mass update” specialists
+20%
+Automated change control tools
+18%
+Unpaid overtime
+18%
+Quality measurements
+16%
+Formal base code inspections
+15%
+Regression test libraries
+15%
+Excellent response time
+12%
+Annual training of > 10 days
+12%
+High management experience
+12%
+HELP desk automation
+12%
+No error prone modules
+10%
+On-line defect reporting
+10%
+Productivity measurements
+8%
+Excellent ease of use
+7%
+User satisfaction measurements
+5%
+High team morale
+5%
+Sum
+503%
+Not only are error-prone modules troublesome, but many other factors can degrade performance too. For example, very complex spaghetti code is quite difficult to maintain safely.
+A very common situation which often degrades performance is lack of suitable maintenance tools, such as defect tracking software, change management software, and test library software. Below describe some of the factors and the range of impact on software maintenance.
+Impact of key adjustment factors on maintenance (sorted in order of maximum negative impact)
+Maintenance Factors
+Minus Range
+Error prone modules
+-50%
+Embedded variables and data
+-45%
+Staff inexperience
+-40%
+High code complexity
+-30%
+No Y2K of special search engines
+-28%
+Manual change control methods
+-27%
+Low level programming languages
+-25%
+No defect tracking tools
+-24%
+No Y2K “mass update” specialists
+-22%
+Poor ease of use
+-18%
+No quality measurements
+-18%
+No maintenance specialists
+-18%
+Poor response time
+-16%
+No code inspections
+-15%
+No regression test libraries
+-15%
+No help desk automation
+-15%
+No on-line defect reporting
+-12%
+Management inexperience
+-15%
+No code restructuring tools
+-10%
+No annual training
+-10%
+No reengineering tools
+-10%
+No reverse-engineering tools
+-10%
+No complexity analysis tools
+-10%
+No productivity measurements
+-7%
+Poor team morale
+-6%
+No user satisfaction measurements
+-4%
+No unpaid overtime
+0%
+Sum
+-500%
+[10]
+Maintenance debt[edit]
+In a paper for the 27th International Conference on Software Quality Management
+in 2019,[11] John Estdale introduced the term “maintenance debt” for maintenance needs generated by an implementation’s dependence on external IT factors such as libraries, platforms and tools, that have become obsolescent.[12] The application continues to run, and the IT department forgets this theoretical liability, focussing on more urgent requirements and problems elsewhere. Such debt accumulates over time, silently eating away at the value of the software asset. Eventually something happens that makes system change unavoidable.
+The owner may then discover that the system can no longer be modified – it is literally unmaintainable. Less dramatically, it may take too long, or cost too much, for maintenance to solve the business problem, and an alternative solution must be found. The software has suddenly crashed to £0 value.
+Estdale defines "Maintenance Debt"[12] as: the gap between the current implementation state of an application and the ideal, using only functionality of external components that is fully maintained and supported. This debt is often hidden or not recognized. An application’s overall maintainability is dependent on the continuing obtainability of components of all sorts from other suppliers, including:
+Development tools: source editing, configuration management, compilation and build
+Testing tools: test selection, execution/verification/reporting
+Platforms to execute the above: hardware, operating system and other services
+Production environment and any standby/Disaster Recovery facilities, including the source code language’s Run-Time Support Environment, and the wider ecosystem of job scheduling, file transfer, replicated storage, backup and archive, single sign-on, etc etc.
+Separately acquired packages, eg DBMS, graphics, comms, middleware
+Bought in source-code, object code libraries, and other invocable services
+Any requirements arising from other applications sharing the production environment or interworking with the application in question
+and of course
+The availability of relevant skills, in-house, or in the marketplace.
+The complete disappearance of a component could make the application un-rebuildable, or imminently unmaintainable.
+See also[edit]
+Application retirement
+Journal of Software Maintenance and Evolution: Research and Practice
+Long-term support
+Search-based software engineering
+Software archaeology
+Software maintainer
+Software development
+References[edit]
+[13]
+^ "ISO/IEC 14764:2006 Software Engineering — Software Life Cycle Processes — Maintenance". Iso.org. 2011-12-17. Retrieved 2013-12-02.
+^ Soleimani Neysiani, Behzad; Babamir, Seyed Morteza; Aritsugi, Masayoshi (2020-10-01). "Efficient feature extraction model for validation performance improvement of duplicate bug report detection in software bug triage systems". Information and Software Technology. 126: 106344. doi:10.1016/j.infsof.2020.106344. S2CID 219733047.
+^ Pigoski, Thomas M., 1997: Practical software maintenance: Best practices for managing your software investment. Wiley Computer Pub. (New York)
+^ Eick, S., Graves, T., Karr, A., Marron, J., and Mockus, A. 2001. Does Code Decay? Assessing Evidence from Change Management Data. IEEE Transactions on Software Engineering. 27(1) 1-12.
+^ Lientz B., Swanson E., 1980: Software Maintenance Management. Addison Wesley, Reading, MA
+^ Lehman M. M., 1980: Program, Life-Cycles and the Laws of Software Evolution. In Proceedings of IEEE, 68, 9,1060-1076
+^ Penny Grubb, Armstrong A. Takang, 2003: Software Maintenance: Concepts and Practice. World Scientific Publishing Company
+^ Lientz, B. P.; Swanson, E. B.; Tompkins, G. E. (June 1978). "E. Burt Swanson, The dimensions of maintenance. Proceedings of the 2nd international conference on Software engineering, San Francisco, 1976, pp 492 — 497". Communications of the ACM. Portal.acm.org. 21 (6): 466–471. doi:10.1145/359511.359522. S2CID 14950091. Retrieved 2013-12-02.
+^ Status of 1219-1998 by IEEE Standards
+^ "The Economics Of Software Maintenance In The Twenty First Century" (PDF). Archived from the original (PDF) on 2015-03-19. Retrieved 2013-12-02.
+^ Khan, O; Marchbank, P; Georgiadou, E; Linecar, P; Ross, M; Staples, G (2019). Proc of Software Quality Management XXVII: International Experiences and Initiatives in IT Quality Management. Southampton: Solent University. ISBN 978-1-9996549-2-4.
+^ a b Estdale, John. Delaying Maintenance Can Prove Fatal. in [11]. pp. 95–106.
+^ Pigoski, Thomas. "Chapter 6: Software Maintenance" (PDF). SWEBOK. IEEE. Retrieved 5 November 2012.
+Further reading[edit]
+ISO/IEC 14764 IEEE Std 14764-2006 Software Engineering — Software Life Cycle Processes — Maintenance. 2006. doi:10.1109/IEEESTD.2006.235774. ISBN 0-7381-4960-8.
+Pigoski, Thomas M. (1996). Practical Software Maintenance. New York: John Wiley & Sons. ISBN 978-0-471-17001-3.
+Pigoski, Thomas M. Description for Software Evolution and Maintenance (version 0.5). SWEBOK Knowledge Area.
+April, Alain; Abran, Alain (2008). Software Maintenance Management. New York: Wiley-IEEE. ISBN 978-0-470-14707-8.
+Gopalaswamy Ramesh; Ramesh Bhattiprolu (2006). Software maintenance : effective practices for geographically distributed environments. New Delhi: Tata McGraw-Hill. ISBN 978-0-07-048345-3.
+Grubb, Penny; Takang, Armstrong (2003). Software Maintenance. New Jersey: World Scientific Publishing. ISBN 978-981-238-425-6.
+Lehman, M.M.; Belady, L.A. (1985). Program evolution : processes of software change. London: Academic Press Inc. ISBN 0-12-442441-4.
+Page-Jones, Meilir (1980). The Practical Guide to Structured Systems Design. New York: Yourdon Press. ISBN 0-917072-17-0.
+External links[edit]
+Journal of Software Maintenance
+vteComputer scienceNote: This template roughly follows the 2012 ACM Computing Classification System.Hardware
+Printed circuit board
+Peripheral
+Integrated circuit
+Very Large Scale Integration
+Systems on Chip (SoCs)
+Energy consumption (Green computing)
+Electronic design automation
+Hardware acceleration
+Computer systems organization
+Computer architecture
+Embedded system
+Real-time computing
+Dependability
+Networks
+Network architecture
+Network protocol
+Network components
+Network scheduler
+Network performance evaluation
+Network service
+Software organization
+Interpreter
+Middleware
+Virtual machine
+Operating system
+Software quality
+Software notations and tools
+Programming paradigm
+Programming language
+Compiler
+Domain-specific language
+Modeling language
+Software framework
+Integrated development environment
+Software configuration management
+Software library
+Software repository
+Software development
+Control variable
+Software development process
+Requirements analysis
+Software design
+Software construction
+Software deployment
+Software maintenance
+Programming team
+Open-source model
+Theory of computation
+Model of computation
+Formal language
+Automata theory
+Computability theory
+Computational complexity theory
+Logic
+Semantics
+Algorithms
+Algorithm design
+Analysis of algorithms
+Algorithmic efficiency
+Randomized algorithm
+Computational geometry
+Mathematics of computing
+Discrete mathematics
+Probability
+Statistics
+Mathematical software
+Information theory
+Mathematical analysis
+Numerical analysis
+Theoretical computer science
+Information systems
+Database management system
+Information storage systems
+Enterprise information system
+Social information systems
+Geographic information system
+Decision support system
+Process control system
+Multimedia information system
+Data mining
+Digital library
+Computing platform
+Digital marketing
+World Wide Web
+Information retrieval
+Security
+Cryptography
+Formal methods
+Security services
+Intrusion detection system
+Hardware security
+Network security
+Information security
+Application security
+Human–computer interaction
+Interaction design
+Social computing
+Ubiquitous computing
+Visualization
+Accessibility
+Concurrency
+Concurrent computing
+Parallel computing
+Distributed computing
+Multithreading
+Multiprocessing
+Artificial intelligence
+Natural language processing
+Knowledge representation and reasoning
+Computer vision
+Automated planning and scheduling
+Search methodology
+Control method
+Philosophy of artificial intelligence
+Distributed artificial intelligence
+Machine learning
+Supervised learning
+Unsupervised learning
+Reinforcement learning
+Multi-task learning
+Cross-validation
+Graphics
+Animation
+Rendering
+Image manipulation
+Graphics processing unit
+Mixed reality
+Virtual reality
+Image compression
+Solid modeling
+Applied computing
+E-commerce
+Enterprise software
+Computational mathematics
+Computational physics
+Computational chemistry
+Computational biology
+Computational social science
+Computational engineering
+Computational healthcare
+Digital art
+Electronic publishing
+Cyberwarfare
+Electronic voting
+Video games
+Word processing
+Operations research
+Educational technology
+Document management
+Category
+Outline
+WikiProject
+Commons
+vteSoftware engineeringFields
+Computer programming
+DevOps
+Requirements engineering
+Site reliability engineering
+Software deployment
+Software design
+Software maintenance
+Software testing
+Systems analysis
+Formal methods
+Concepts
+Data modeling
+Enterprise architecture
+Functional specification
+Modeling language
+Programming paradigm
+Software
+Software archaeology
+Software architecture
+Software configuration management
+Software development process/methodology
+Software quality
+Software quality assurance
+Software verification and validation
+Structured analysis
+Essential Analysis
+Orientations
+Agile
+Aspect-oriented
+Object orientation
+Ontology
+Service orientation
+SDLC
+ModelsDevelopmental
+Agile
+EUP
+Executable UML
+Incremental model
+Iterative model
+Prototype model
+RAD
+UP
+Scrum
+Spiral model
+V-Model
+Waterfall model
+XP
+Other
+SPICE
+CMMI
+Data model
+ER model
+Function model
+Information model
+Metamodeling
+Object model
+Systems model
+View model
+Languages
+IDEF
+UML
+USL
+SysML
+Related fields
+Computer science
+Computer engineering
+Information science
+Project management
+Risk management
+Systems engineering
+Category
+Commons
+vteIEEE standardsCurrent
+488
+730
+754
+Revision
+854
+828
+829
+896
+1003
+1014
+1016
+1076
+1149.1
+1154
+1164
+1275
+1278
+1284
+1355
+1394
+1451
+1497
+1516
+1541
+1547
+1584
+1588
+1596
+1603
+1613
+1666
+1667
+1675
+1685
+1722
+1733
+1800
+1801
+1815
+1850
+1900
+1901
+1902
+1904
+1905
+2030
+2050
+11073
+12207
+14764
+16085
+16326
+29148
+42010
+802 series802.1
+D
+p
+Q
+Qav
+Qat
+Qay
+w
+X
+ab
+ad
+AE
+ag
+ah
+ak
+aq
+AS
+ax
+az
+BA
+802.3
+-1983
+a
+b
+d
+e
+i
+j
+u
+x
+y
+z
+ab
+ac
+ad
+ae
+af
+ah
+ak
+an
+aq
+at
+av
+az
+ba
+bt
+by
+bz
+cg
+802.11
+legacy mode
+a
+b
+c
+d
+e
+f
+g
+h
+i
+j
+k
+n (Wi-Fi 4)
+p
+r
+s
+u
+v
+w
+y
+ac (Wi-Fi 5)
+ad
+af
+ah
+ai
+ax (Wi-Fi 6)
+ay
+be (Wi-Fi 7)
+.2
+.4
+.5
+.6
+.7
+.8
+.9
+.10
+.12
+.14
+.15
+.1
+.4
+.4a
+.6
+.16
+Original · d · e
+.17
+.18
+.20
+.21
+.22Proposed
+P1363
+P1619
+P1699
+P1823
+P1906.1
+Superseded
+754-1985
+830
+1219
+1233
+1362
+1364
+1471
+See also
+IEEE Standards Association
+Category:IEEE standards
+vteISO standards by standard numberList of ISO standards / ISO romanizations / IEC standards1–9999
+1
+2
+3
+4
+5
+6
+7
+9
+16
+17
+31
+-0
+-1
+-2
+-3
+-4
+-5
+-6
+-7
+-8
+-9
+-10
+-11
+-12
+-13
+68-1
+128
+216
+217
+226
+228
+233
+259
+261
+262
+269
+302
+306
+361
+428
+500
+518
+519
+639
+-1
+-2
+-3
+-5
+-6
+646
+657
+668
+690
+704
+732
+764
+838
+843
+860
+898
+965
+999
+1000
+1004
+1007
+1073-1
+1073-2
+1155
+1413
+1538
+1629
+1745
+1989
+2014
+2015
+2022
+2033
+2047
+2108
+2145
+2146
+2240
+2281
+2533
+2709
+2711
+2720
+2788
+2848
+2852
+3029
+3103
+3166
+-1
+-2
+-3
+3297
+3307
+3601
+3602
+3864
+3901
+3950
+3977
+4031
+4157
+4165
+4217
+4909
+5218
+5426
+5427
+5428
+5725
+5775
+5776
+5800
+5807
+5964
+6166
+6344
+6346
+6385
+6425
+6429
+6438
+6523
+6709
+6943
+7001
+7002
+7010
+7027
+7064
+7098
+7185
+7200
+7498
+-1
+7637
+7736
+7810
+7811
+7812
+7813
+7816
+7942
+8000
+8093
+8178
+8217
+8373
+8501-1
+8571
+8583
+8601
+8613
+8632
+8651
+8652
+8691
+8805/8806
+8807
+8820-5
+8859
+-1
+-2
+-3
+-4
+-5
+-6
+-7
+-8
+-8-I
+-9
+-10
+-11
+-12
+-13
+-14
+-15
+-16
+8879
+9000/9001
+9036
+9075
+9126
+9141
+9227
+9241
+9293
+9314
+9362
+9407
+9496
+9506
+9529
+9564
+9592/9593
+9594
+9660
+9797-1
+9897
+9899
+9945
+9984
+9985
+9995
+10000–19999
+10005
+10006
+10007
+10116
+10118-3
+10160
+10161
+10165
+10179
+10206
+10218
+10303
+-11
+-21
+-22
+-28
+-238
+10383
+10487
+10585
+10589
+10628
+10646
+10664
+10746
+10861
+10957
+10962
+10967
+11073
+11170
+11179
+11404
+11544
+11783
+11784
+11785
+11801
+11889
+11898
+11940 (-2)
+11941
+11941 (TR)
+11992
+12006
+12182
+12207
+12234-2
+12620
+13211
+-1
+-2
+13216
+13250
+13399
+13406-2
+13450
+13485
+13490
+13567
+13568
+13584
+13616
+13816
+14000
+14031
+14224
+14289
+14396
+14443
+14496
+-2
+-3
+-6
+-10
+-11
+-12
+-14
+-17
+-20
+14617
+14644
+14649
+14651
+14698
+14764
+14882
+14971
+15022
+15189
+15288
+15291
+15292
+15398
+15408
+15444
+-3
+15445
+15438
+15504
+15511
+15686
+15693
+15706
+-2
+15707
+15897
+15919
+15924
+15926
+15926 WIP
+15930
+16023
+16262
+16355-1
+16612-2
+16750
+16949 (TS)
+17024
+17025
+17100
+17203
+17369
+17442
+17506
+17799
+18000
+18004
+18014
+18245
+18629
+18916
+19005
+19011
+19092
+-1
+-2
+19114
+19115
+19125
+19136
+19407
+19439
+19500
+19501
+19502
+19503
+19505
+19506
+19507
+19508
+19509
+19510
+19600
+19752
+19757
+19770
+19775-1
+19794-5
+19831
+20000–29999
+20000
+20022
+20121
+20400
+20802
+21000
+21047
+21500
+21827
+22000
+22300
+22395
+23090-3
+23270
+23271
+23360
+24517
+24613
+24617
+24707
+25178
+25964
+26000
+26262
+26300
+26324
+27000 series
+27000
+27001
+27002
+27005
+27006
+27729
+28000
+29110
+29148
+29199-2
+29500
+30000+
+30170
+31000
+32000
+37001
+38500
+40500
+42010
+45001
+50001
+55000
+56000
+80000
+Category
+Authority control: National libraries
+France (data)
+Germany
+Israel
+United States
+Retrieved from "https://en.wikipedia.org/w/index.php?title=Software_maintenance&oldid=1060015557"
+Categories: Software maintenanceIEEE standardsISO/IEC standardsHidden categories: Articles with short descriptionShort description matches WikidataWikipedia references cleanup from September 2010All articles needing references cleanupArticles covered by WikiProject Wikify from September 2010All articles covered by WikiProject WikifyArticles needing additional references from January 2015All articles needing additional referencesArticles with multiple maintenance issuesAll articles with unsourced statementsArticles with unsourced statements from January 2015Articles with unsourced statements from October 2018All articles with specifically marked weasel-worded phrasesArticles with specifically marked weasel-worded phrases from January 2015Articles with BNF identifiersArticles with GND identifiersArticles with J9U identifiersArticles with LCCN identifiers
+Navigation menu
+Personal tools
+Not logged inTalkContributionsCreate accountLog in
+Namespaces
+ArticleTalk
+English
+Views
+ReadEditView history
+More
+Search
+Navigation
+Main pageContentsCurrent eventsRandom articleAbout WikipediaContact usDonate
+Contribute
+HelpLearn to editCommunity portalRecent changesUpload file
+Tools
+What links hereRelated changesUpload fileSpecial pagesPermanent linkPage informationCite this pageWikidata item
+Print/export
+Download as PDFPrintable version
+In other projects
+Wikimedia Commons
+Languages
+العربيةCatalàDeutschEestiEspañolفارسیFrançaisGalego한국어ՀայերենHrvatskiItalianoעבריתМакедонски日本語PolskiPortuguêsРусскийShqipСрпски / srpskiதமிழ்TürkçeУкраїнськаTiếng Việt粵語中文
+Edit links
+This page was last edited on 13 December 2021, at 00:22 (UTC).
+Text is available under the Creative Commons Attribution-ShareAlike License 3.0;
+additional terms may apply.
+By using this site, you agree to the Terms of Use and Privacy Policy. Wikipedia® is a registered trademark of the Wikimedia Foundation, Inc., a non-profit organization.
+Privacy policy
+About Wikipedia
+Disclaimers
+Contact Wikipedia
+Mobile view
+Developers
+Statistics
+Cookie statement

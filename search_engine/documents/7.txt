@@ -1,0 +1,940 @@
+https://en.wikipedia.org/wiki/Open_Data_Protocol
+Open Data Protocol - Wikipedia
+Open Data Protocol
+From Wikipedia, the free encyclopedia
+Jump to navigation
+Jump to search
+An open protocol for creating interoperable REST APIs
+In computing, Open Data Protocol (OData) is an open
+protocol that allows the creation and consumption of queryable and interoperable REST
+APIs in a simple and standard way. Microsoft initiated OData in 2007.[1] Versions 1.0, 2.0, and 3.0 are released under the Microsoft Open Specification Promise. Version 4.0 was standardized at OASIS,[2] with a release in March 2014.[3] In April 2015 OASIS submitted OData v4 and OData JSON Format v4 to ISO/IEC JTC 1 for approval as an international standard.[4] In December 2016, ISO/IEC published OData 4.0 Core as ISO/IEC 20802-1:2016[5][6] and the OData JSON Format as ISO/IEC 20802-2:2016.[7]
+The protocol enables the creation and consumption of
+REST APIs, which allow
+Web clients to publish and edit resources, identified using URLs and defined in a data model, using simple HTTP messages. OData shares some similarities with JDBC and with ODBC; like ODBC, OData is not limited to relational databases.
+Contents
+1 Standardization
+1.1 OASIS OData Technical Committee
+2 Architecture
+2.1 Resource identification
+2.1.1 The service document
+2.1.2 The metadata document
+2.1.3 Dynamic resources
+2.2 Resource operation
+2.3 Querying
+2.4 Resource representation
+2.4.1 A sample OData JSON data payload
+2.4.2 A sample OData Atom data payload
+2.4.3 A sample OData metadata document
+3 Ecosystem
+3.1 Libraries
+3.1.1 .NET
+3.1.2 Java
+3.1.3 JavaScript
+3.1.4 PHP
+3.1.5 Python
+3.1.6 Ruby
+3.1.7 Others
+3.2 Applications
+4 Tools
+5 See also
+6 References
+7 External links
+7.1 OData OASIS Standards
+7.2 Committee Specifications
+7.3 Committee Notes
+Standardization[edit]
+After initial development by Microsoft, OData became a standardized protocol of the OASIS OData Technical Committee (TC).
+OASIS OData Technical Committee[edit]
+"The OASIS OData TC works to simplify the querying and sharing of data across disparate applications and multiple stakeholders for re-use in the enterprise, Cloud, and mobile devices. A REST-based protocol, OData builds on HTTP, AtomPub, and JSON using URIs to address and access data feed resources. It enables information to be accessed from a variety of sources including (but not limited to) relational databases, file systems, content management systems, and traditional Web sites. OData provides a way to break down data silos and increase the shared value of data by creating an ecosystem in which data consumers can interoperate with data producers in a way that is far more powerful than currently possible, enabling more applications to make sense of a broader set of data. Every producer and consumer of data that participates in this ecosystem increases its overall value."[8]
+TC participants include CA Technologies, Citrix Systems, IBM, Microsoft, Progress Software, Red Hat, SAP SE and SDL.
+Architecture[edit]
+OData is a protocol for the creation and consumption of RESTful APIs. Thus, as common practices of REST, OData builds on HTTP, AtomPub, and JSON using URIs to address and access data feed resources.
+Resource identification[edit]
+OData uses URIs to identify resources. For every OData service whose service root is abbreviated as http://host/service/, the following fixed resources can be found:
+The service document[edit]
+The service document lists entity sets, functions, and singletons that can be retrieved. Clients can use the service document to navigate the model in a hypermedia-driven fashion.
+The service document is available at http://host/service/.
+The metadata document[edit]
+The metadata document describes the types, sets, functions and actions understood by the OData service. Clients can use the metadata document to understand how to query and interact with entities in the service.
+The metadata document is available at http://host/service/$metadata.
+Dynamic resources[edit]
+The URIs for the dynamic resources may be computed from the hypermedia information in the service document and metadata document.
+Resource operation[edit]
+OData uses the HTTP verbs to indicate the operations on the resources.
+GET: Get the resource (a collection of entities, a single entity, a structural property, a navigation property, a stream, etc.).
+POST: Create a new resource.
+PUT: Update an existing resource by replacing it with a complete instance.
+PATCH: Update an existing resource by replacing part of its properties with a partial instance.
+DELETE: Remove the resource.
+Querying[edit]
+URLs requested from an OData endpoint may include query options. The OData protocol specifies various 'system query options' endpoints should accept, these can be used to filter, order, map or paginate data.
+Query options can be appended to a URL after a ? character and are separated by & characters; each option consists of a $-sign prefixed name and its value, separated by a = sign, for example: OData/Products?$top=2&$orderby=Name. A number of logical operators and functions are defined for use when filtering data, for example: OData/Products?$filter=Price lt 10.00 and startswith(Name,'M') requests products with a price smaller than 10 and a name starting with the letter 'M'.
+Resource representation[edit]
+OData uses different formats for representing data and the data model. In OData protocol version 4.0, JSON format is the standard for representing data, with the Atom format still being in committee specification stage. For representing the data model, the Common Schema Definition Language (CSDL)
+is used, which defines an XML representation of the entity data model exposed by OData services.
+A sample OData JSON data payload[edit]
+A collection of products:
+{
+"@odata.context": "http://services.odata.org/V4/OData/OData.svc/$metadata#Products",
+"value": [
+{
+"ID": 0,
+"Name": "Meat",
+"Description": "Red Meat",
+"ReleaseDate": "1992-01-01T00:00:00Z",
+"DiscontinuedDate": null,
+"Rating": 14,
+"Price": 2.5
+},
+{
+"ID": 1,
+"Name": "Milk",
+"Description": "Low fat milk",
+"ReleaseDate": "1995-10-01T00:00:00Z",
+"DiscontinuedDate": null,
+"Rating": 3,
+"Price": 3.5
+},
+...
+]
+}
+A sample OData Atom data payload[edit]
+A collection of products:
+<feed xml:base="http://services.odata.org/V4/OData/OData.svc/" m:context="http://services.odata.org/V4/OData/OData.svc/$metadata#Products" xmlns="http://www.w3.org/2005/Atom" xmlns:d="http://docs.oasis-open.org/odata/ns/data" xmlns:m="http://docs.oasis-open.org/odata/ns/metadata" xmlns:georss="http://www.georss.org/georss" xmlns:gml="http://www.opengis.net/gml">
+<id>http://services.odata.org/v4/odata/odata.svc/Products</id>
+<title type="text">Products</title>
+<updated>2015-05-19T03:38:50Z</updated>
+<link rel="self" title="Products" href="Products"/>
+<entry>
+<id>http://services.odata.org/V4/OData/OData.svc/Products(0)</id>
+<category term="#ODataDemo.Product" scheme="http://docs.oasis-open.org/odata/ns/scheme"/>
+<link rel="edit" title="Product" href="Products(0)"/>
+<link rel="http://docs.oasis-open.org/odata/ns/relatedlinks/Categories" type="application/xml" title="Categories" href="Products(0)/Categories/$ref"/>
+<link rel="http://docs.oasis-open.org/odata/ns/related/Categories" type="application/atom+xml;type=feed" title="Categories" href="Products(0)/Categories"/>
+<link rel="http://docs.oasis-open.org/odata/ns/relatedlinks/Supplier" type="application/xml" title="Supplier" href="Products(0)/Supplier/$ref"/>
+<link rel="http://docs.oasis-open.org/odata/ns/related/Supplier" type="application/atom+xml;type=entry" title="Supplier" href="Products(0)/Supplier"/>
+<link rel="http://docs.oasis-open.org/odata/ns/relatedlinks/ProductDetail" type="application/xml" title="ProductDetail" href="Products(0)/ProductDetail/$ref"/>
+<link rel="http://docs.oasis-open.org/odata/ns/related/ProductDetail" type="application/atom+xml;type=entry" title="ProductDetail" href="Products(0)/ProductDetail"/>
+<title/>
+<updated>2015-05-19T03:38:50Z</updated>
+<author>
+<name/>
+</author>
+<content type="application/xml">
+<m:properties>
+<d:ID m:type="Int32">0</d:ID>
+<d:Name>Bread</d:Name>
+<d:Description>Whole grain bread</d:Description>
+<d:ReleaseDate m:type="DateTimeOffset">1992-01-01T00:00:00Z</d:ReleaseDate>
+<d:DiscontinuedDate m:null="true"/>
+<d:Rating m:type="Int16">4</d:Rating>
+<d:Price m:type="Double">2.5</d:Price>
+</m:properties>
+</content>
+</entry>
+<entry>
+<id>http://services.odata.org/V4/OData/OData.svc/Products(1)</id>
+<category term="#ODataDemo.Product" scheme="http://docs.oasis-open.org/odata/ns/scheme"/>
+<link rel="edit" title="Product" href="Products(1)"/>
+<link rel="http://docs.oasis-open.org/odata/ns/relatedlinks/Categories" type="application/xml" title="Categories" href="Products(1)/Categories/$ref"/>
+<link rel="http://docs.oasis-open.org/odata/ns/related/Categories" type="application/atom+xml;type=feed" title="Categories" href="Products(1)/Categories"/>
+<link rel="http://docs.oasis-open.org/odata/ns/relatedlinks/Supplier" type="application/xml" title="Supplier" href="Products(1)/Supplier/$ref"/>
+<link rel="http://docs.oasis-open.org/odata/ns/related/Supplier" type="application/atom+xml;type=entry" title="Supplier" href="Products(1)/Supplier"/>
+<link rel="http://docs.oasis-open.org/odata/ns/relatedlinks/ProductDetail" type="application/xml" title="ProductDetail" href="Products(1)/ProductDetail/$ref"/>
+<link rel="http://docs.oasis-open.org/odata/ns/related/ProductDetail" type="application/atom+xml;type=entry" title="ProductDetail" href="Products(1)/ProductDetail"/>
+<title/>
+<updated>2015-05-19T03:38:50Z</updated>
+<author>
+<name/>
+</author>
+<content type="application/xml">
+<m:properties>
+<d:ID m:type="Int32">1</d:ID>
+<d:Name>Milk</d:Name>
+<d:Description>Low fat milk</d:Description>
+<d:ReleaseDate m:type="DateTimeOffset">1995-10-01T00:00:00Z</d:ReleaseDate>
+<d:DiscontinuedDate m:null="true"/>
+<d:Rating m:type="Int16">3</d:Rating>
+<d:Price m:type="Double">3.5</d:Price>
+</m:properties>
+</content>
+</entry>
+...
+</feed>
+A sample OData metadata document[edit]
+<edmx:Edmx Version="4.0" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+<edmx:DataServices>
+<Schema Namespace="ODataDemo" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+<EntityType Name="Product">
+<Key>
+<PropertyRef Name="ID"/>
+</Key>
+<Property Name="ID" Type="Edm.Int32" Nullable="false"/>
+<Property Name="Name" Type="Edm.String"/>
+<Property Name="Description" Type="Edm.String"/>
+<Property Name="ReleaseDate" Type="Edm.DateTimeOffset" Nullable="false"/>
+<Property Name="DiscontinuedDate" Type="Edm.DateTimeOffset"/>
+<Property Name="Rating" Type="Edm.Int16" Nullable="false"/>
+<Property Name="Price" Type="Edm.Double" Nullable="false"/>
+</EntityType>
+<ComplexType Name="Address">
+<Property Name="Street" Type="Edm.String"/>
+<Property Name="City" Type="Edm.String"/>
+<Property Name="State" Type="Edm.String"/>
+<Property Name="ZipCode" Type="Edm.String"/>
+<Property Name="Country" Type="Edm.String"/>
+</ComplexType>
+<EntityContainer Name="DemoService">
+<EntitySet Name="Products" EntityType="ODataDemo.Product"></EntitySet>
+</EntityContainer>
+</Schema>
+</edmx:DataServices>
+</edmx:Edmx>
+Ecosystem[edit]
+This section's use of external links may not follow Wikipedia's policies or guidelines. Please improve this article by removing excessive or inappropriate external links, and converting useful links where appropriate into footnote references. (October 2015) (Learn how and when to remove this template message)
+The ecosystem of OData consists of the client/server libraries that implement the protocol, and applications that are based on the protocol.
+Libraries[edit]
+There are a number of OData libraries available to access/produce OData APIs:
+.NET[edit]
+Server and client: Microsoft's OData .NET libraries[9]
+Client: Simple.OData.Client[10]
+Java[edit]
+Server and client: Apache Olingo[11]
+Server side: Jello-Framework[12]
+Client: odata-client[13]
+JavaScript[edit]
+Client: Apache Olingo[14] (featured by OASIS[15])
+Client: data.js[16]
+Client: JayData[17] for higher level of abstraction (LINQ-like syntax, support for OData geo features, IndexedDB, WebSQL, integration for DevExtreme, Kendo UI, Angular.js, Knockout.js and Sencha).
+Client: OpenUI5 library maintained by SAP
+Client (Node.js): JayData for node[18]
+Client: Breeze[19]
+Client: OData4 and Invantive Bridge Online[20]
+Server: node-odata[21]
+PHP[edit]
+Client: odataphp[22]
+Server: POData[23]
+Python[edit]
+Client: PyOData[24]
+Server and client: Pyslet[25]
+Ruby[edit]
+Client: ruby_odata library[26]
+Client: Free OData V4.0 Library for Ruby[27]
+Server: Safrano[28]
+Others[edit]
+Other languages implemented include:[29]
+AJAX: ASP.NET Ajax Library[30] for getting to OData.
+C++: odatacpp_client[31] is a client-side-only implementation of the OData protocol.
+Windward Studios[32] supports OData in their Reporting & Document Generation Solutions.
+Reporting tool List & Label has a specialized data provider for OData.
+Blackberry (C++): OData-BB10[33] Open Data Protocol (OData) library for BlackBerry 10 (BB10) Cascades apps
+Applications[edit]
+Applications include:[34]
+Progress DataDirect Hybrid Data Pipeline[35] can expose any cloud, big data or relational data sources as OData end points
+Socrata exposes an OData API.
+Microsoft Azure exposes an OData API.
+SAP NetWeaver Gateway[36] provides OData access to SAP Business Suite and SAP Business Warehouse.
+IBM WebSphere eXtreme Scale REST data service can be accessed by any HTTP client using OData.[37]
+Microsoft SharePoint 2010 and up can expose its data as OData endpoint
+Office 365 exposes OData V4.0 APIs.[38]
+Salesforce Connect consumes OData APIs.[39]
+Skyvia Connect[40] exposes cloud and database data via OData
+Tableau can connect to OData APIs.[41]
+TIBCO Spotfire can connect to OData APIs.[42]
+Mulesoft[43] helps integrate with OData APIs.[44]
+SuccessFactors[45] uses Odata APIs
+Ceridian HCM's Dayforce[46] uses Odata[47]
+Redfish uses Odata[48]
+Tools[edit]
+Nucleon Database Master [49]
+See also[edit]
+GData – competing protocol from Google
+Resource Description Framework (RDF) – a similar concept by W3C
+GraphQL
+References[edit]
+^ "Welcome!". MSDN Blogs. OData Team.
+^ "OASIS Open Data Protocol (OData) Technical Committee". Retrieved 2013-08-05.
+^ "OASIS Approves OData 4.0 Standards for an Open, Programmable Web". oasis-open.org.
+^ "OASIS has Submitted OData v4 and OData JSON Format v4 to ISO/IEC JTC 1 for approval as an International Standard". MS Open Tech. Archived from the original on 2015-05-20. Retrieved 2015-05-18.
+^ "OData Published as an ISO Standard · OData - the Best Way to REST". www.odata.org. Retrieved 2021-05-11.
+^ "ISO/IEC 20802-1:2016". ISO. Retrieved 2021-05-11.{{cite web}}:
+CS1 maint: url-status (link)
+^ "ISO/IEC 20802-2:2016". ISO. Retrieved 2021-05-11.{{cite web}}:
+CS1 maint: url-status (link)
+^ "OASIS Open Data Protocol (OData) TC | OASIS". www.oasis-open.org. Retrieved September 24, 2019.
+^ Microsoft's OData .NET libraries
+^ Simple.OData.Client
+^ Apache Olingo
+^ Jello-Framework
+^ odata-client
+^ Apache Olingo
+^ "Libraries · OData - the Best Way to REST". www.odata.org. Retrieved 2019-02-19.
+^ "data.js". CodePlex Archive.
+^ JayData
+^ JayData for node
+^ Breeze
+^ OData4 and Invantive Bridge Online
+^ node-odata
+^ odataphp
+^ POData
+^ PyOData
+^ Pyslet
+^ ruby_odata library
+^ Free OData V4.0 Library for Ruby
+^ Safrano
+^ "Libraries". odata.org.
+^ ASP.NET Ajax Library
+^ odatacpp_client
+^ Windward Studios
+^ OData-BB10
+^ "Ecosystem". odata.org.
+^ Progress DataDirect Hybrid Data Pipeline
+^ "SAP NetWeaver Gateway". Retrieved 2012-11-22.
+^ IBM developerWorks eXtreme Scale REST data service (OData)
+^ "Welcome to Office 365 APIs". docs.microsoft.com. Retrieved September 24, 2019.
+^ "Set Up Salesforce Connect to Access External Data with the OData 2.0 or 4.0 Adapter".
+^ Skyvia Connect
+^ "OData - Tableau". help.tableau.com. Retrieved September 24, 2019.
+^ "OData and Spotfire". The TIBCO Blog. Retrieved 2016-03-30.
+^ Mulesoft
+^ "Anypoint Exchange". www.mulesoft.com. Retrieved September 24, 2019.
+^ SuccessFactors
+^ Ceridian HCM's Dayforce
+^ "HR Reporting Software - Dayforce | Ceridian". www.ceridian.com. Retrieved September 24, 2019.
+^ "What You Need to Know About Redfish API". Exxact. 2017-12-01. Retrieved 2019-08-31.
+^ "Nucleon Database Master". Retrieved 16 November 2017.
+External links[edit]
+Official website
+Develop Service-Oriented Applications with WCF
+OData Basics Presentation
+OData OASIS Standards[edit]
+OData Version 4.0 Part 1: Protocol
+OData Version 4.0 Part 2: URL Conventions
+OData Version 4.0 Part 3: Common Schema Definition Language (CSDL)
+ABNF components - OData ABNF Construction Rules Version 4.0 and OData ABNF Test Cases
+Vocabulary components - OData Core Vocabulary and OData Measures Vocabulary
+XML Schemas - OData EDMX XML Schema and OData EDM XML Schema
+OData JSON Format Version 4.0
+Committee Specifications[edit]
+OData Atom Format Version 4.0
+OData Extension for Data Aggregation Version 4.0
+Committee Notes[edit]
+What’s New in OData Version 4.0
+vteIEC standardsIEC standards
+60027
+60034
+60038
+60062
+60063
+60068
+60112
+60228
+60269
+60297
+60309
+60320
+60364
+60446
+60559
+60601
+60870
+60870-5
+60870-6
+60906-1
+60908
+60929
+60958
+61030
+61131
+61131-3
+61131-9
+61158
+61162
+61334
+61355
+61360
+61400
+61499
+61508
+61511
+61784
+61850
+61851
+61883
+61960
+61968
+61970
+62014-4
+62026
+62056
+62061
+62196
+62262
+62264
+62304
+62325
+62351
+62365
+62366
+62379
+62386
+62455
+62680
+62682
+62700
+63110
+63119
+63382
+ISO/IEC standards
+646
+2022
+4909
+5218
+6429
+6523
+7810
+7811
+7812
+7813
+7816
+7942
+8613
+8632
+8652
+8859
+9126
+9293
+9496
+9529
+9592
+9593
+9899
+9945
+9995
+10021
+10116
+10165
+10179
+10646
+10967
+11172
+11179
+11404
+11544
+11801
+12207
+13250
+13346
+13522-5
+13568
+13816
+13818
+14443
+14496
+14651
+14882
+15288
+15291
+15408
+15444
+15445
+15504
+15511
+15693
+15897
+15938
+16262
+17024
+17025
+18000
+18004
+18014
+19752
+19757
+19770
+19788
+20000
+20802
+21000
+21827
+23000
+23003
+23008
+23270
+23360
+24707
+24727
+24744
+24752
+26300
+27000
+27000-series
+27002
+27040
+29110
+29119
+33001
+38500
+42010
+80000
+81346
+Related
+International Electrotechnical Commission
+vteISO standards by standard numberList of ISO standards / ISO romanizations / IEC standards1–9999
+1
+2
+3
+4
+5
+6
+7
+9
+16
+17
+31
+-0
+-1
+-2
+-3
+-4
+-5
+-6
+-7
+-8
+-9
+-10
+-11
+-12
+-13
+68-1
+128
+216
+217
+226
+228
+233
+259
+261
+262
+269
+302
+306
+361
+428
+500
+518
+519
+639
+-1
+-2
+-3
+-5
+-6
+646
+657
+668
+690
+704
+732
+764
+838
+843
+860
+898
+965
+999
+1000
+1004
+1007
+1073-1
+1073-2
+1155
+1413
+1538
+1629
+1745
+1989
+2014
+2015
+2022
+2033
+2047
+2108
+2145
+2146
+2240
+2281
+2533
+2709
+2711
+2720
+2788
+2848
+2852
+3029
+3103
+3166
+-1
+-2
+-3
+3297
+3307
+3601
+3602
+3864
+3901
+3950
+3977
+4031
+4157
+4165
+4217
+4909
+5218
+5426
+5427
+5428
+5725
+5775
+5776
+5800
+5807
+5964
+6166
+6344
+6346
+6385
+6425
+6429
+6438
+6523
+6709
+6943
+7001
+7002
+7010
+7027
+7064
+7098
+7185
+7200
+7498
+-1
+7637
+7736
+7810
+7811
+7812
+7813
+7816
+7942
+8000
+8093
+8178
+8217
+8373
+8501-1
+8571
+8583
+8601
+8613
+8632
+8651
+8652
+8691
+8805/8806
+8807
+8820-5
+8859
+-1
+-2
+-3
+-4
+-5
+-6
+-7
+-8
+-8-I
+-9
+-10
+-11
+-12
+-13
+-14
+-15
+-16
+8879
+9000/9001
+9036
+9075
+9126
+9141
+9227
+9241
+9293
+9314
+9362
+9407
+9496
+9506
+9529
+9564
+9592/9593
+9594
+9660
+9797-1
+9897
+9899
+9945
+9984
+9985
+9995
+10000–19999
+10005
+10006
+10007
+10116
+10118-3
+10160
+10161
+10165
+10179
+10206
+10218
+10303
+-11
+-21
+-22
+-28
+-238
+10383
+10487
+10585
+10589
+10628
+10646
+10664
+10746
+10861
+10957
+10962
+10967
+11073
+11170
+11179
+11404
+11544
+11783
+11784
+11785
+11801
+11889
+11898
+11940 (-2)
+11941
+11941 (TR)
+11992
+12006
+12182
+12207
+12234-2
+12620
+13211
+-1
+-2
+13216
+13250
+13399
+13406-2
+13450
+13485
+13490
+13567
+13568
+13584
+13616
+13816
+14000
+14031
+14224
+14289
+14396
+14443
+14496
+-2
+-3
+-6
+-10
+-11
+-12
+-14
+-17
+-20
+14617
+14644
+14649
+14651
+14698
+14764
+14882
+14971
+15022
+15189
+15288
+15291
+15292
+15398
+15408
+15444
+-3
+15445
+15438
+15504
+15511
+15686
+15693
+15706
+-2
+15707
+15897
+15919
+15924
+15926
+15926 WIP
+15930
+16023
+16262
+16355-1
+16612-2
+16750
+16949 (TS)
+17024
+17025
+17100
+17203
+17369
+17442
+17506
+17799
+18000
+18004
+18014
+18245
+18629
+18916
+19005
+19011
+19092
+-1
+-2
+19114
+19115
+19125
+19136
+19407
+19439
+19500
+19501
+19502
+19503
+19505
+19506
+19507
+19508
+19509
+19510
+19600
+19752
+19757
+19770
+19775-1
+19794-5
+19831
+20000–29999
+20000
+20022
+20121
+20400
+20802
+21000
+21047
+21500
+21827
+22000
+22300
+22395
+23090-3
+23270
+23271
+23360
+24517
+24613
+24617
+24707
+25178
+25964
+26000
+26262
+26300
+26324
+27000 series
+27000
+27001
+27002
+27005
+27006
+27729
+28000
+29110
+29148
+29199-2
+29500
+30000+
+30170
+31000
+32000
+37001
+38500
+40500
+42010
+45001
+50001
+55000
+56000
+80000
+Category
+Retrieved from "https://en.wikipedia.org/w/index.php?title=Open_Data_Protocol&oldid=1080692414"
+Categories: Atom (Web standard)Web syndication formatsXML-based standardsISO/IEC standardsHidden categories: CS1 maint: url-statusArticles with short descriptionShort description is different from WikidataWikipedia external links cleanup from October 2015Wikipedia spam cleanup from October 2015
+Navigation menu
+Personal tools
+Not logged inTalkContributionsCreate accountLog in
+Namespaces
+ArticleTalk
+English
+Views
+ReadEditView history
+More
+Search
+Navigation
+Main pageContentsCurrent eventsRandom articleAbout WikipediaContact usDonate
+Contribute
+HelpLearn to editCommunity portalRecent changesUpload file
+Tools
+What links hereRelated changesUpload fileSpecial pagesPermanent linkPage informationCite this pageWikidata item
+Print/export
+Download as PDFPrintable version
+Languages
+ČeštinaDeutschEspañolFrançaisItalianoPolskiРусский中文
+Edit links
+This page was last edited on 2 April 2022, at 20:41 (UTC).
+Text is available under the Creative Commons Attribution-ShareAlike License 3.0;
+additional terms may apply.
+By using this site, you agree to the Terms of Use and Privacy Policy. Wikipedia® is a registered trademark of the Wikimedia Foundation, Inc., a non-profit organization.
+Privacy policy
+About Wikipedia
+Disclaimers
+Contact Wikipedia
+Mobile view
+Developers
+Statistics
+Cookie statement
