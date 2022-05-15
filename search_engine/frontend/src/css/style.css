@@ -1,0 +1,289 @@
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;700&display=swap");
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+html,
+body,
+div,
+span,
+object,
+iframe,
+figure,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+code,
+em,
+img,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+b,
+u,
+i,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+main,
+canvas,
+embed,
+footer,
+header,
+nav,
+section,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: none;
+     -moz-text-size-adjust: none;
+      -ms-text-size-adjust: none;
+          text-size-adjust: none;
+}
+
+footer,
+header,
+nav,
+section,
+main {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: '';
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+input {
+  -webkit-appearance: none;
+  border-radius: 0;
+}
+
+:root {
+  --background-color: #202124;
+  --gray-1: #303134;
+  --url: #8ab4f8;
+}
+
+body {
+  font-family: 'Oswald', sans-serif;
+  color: white;
+}
+
+.app {
+  width: 100%;
+  min-width: 200px;
+  min-height: 100vh;
+  background-color: var(--background-color);
+}
+
+.search {
+  width: 100%;
+  height: 100vh;
+  min-height: -webkit-fill-available;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.search__title {
+  font-size: 4rem;
+  margin-bottom: 50px;
+}
+
+.search__submit-btn {
+  margin-top: 25px;
+  border: none;
+  border-radius: 0.5rem;
+  background-color: var(--gray-1);
+  font-size: 1rem;
+  color: white;
+  padding: 10px 20px 10px 20px;
+}
+
+.result {
+  padding: 30px;
+  max-width: 600px;
+}
+
+.result__url {
+  text-decoration: none;
+  color: var(--url);
+}
+
+.result__title {
+  font-size: 2rem;
+}
+
+.result__description {
+  margin-top: 1rem;
+}
+
+.search-bar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border: 1px solid white;
+  border-radius: 3rem;
+  padding: 5px 10px 5px 10px;
+}
+
+.search-bar__icon {
+  font-size: 1.5rem;
+  margin-right: 5px;
+}
+
+.search-bar__input {
+  height: 2rem;
+  width: 70vw;
+  max-width: 500px;
+  background-color: transparent;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+}
+
+.search-bar__input:focus {
+  outline: none;
+}
+
+.top-bar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  gap: 20px;
+  padding: 20px 30px 20px 30px;
+  border-bottom: 1px solid white;
+}
+
+.top-bar__title {
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+.top-bar__search {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  gap: 20px;
+}
+
+.top-bar__search-bar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border: 1px solid white;
+  border-radius: 3rem;
+  padding: 5px 10px 5px 10px;
+}
+
+.top-bar__icon {
+  font-size: 1.5rem;
+  margin-right: 5px;
+}
+
+.top-bar__input {
+  height: 2rem;
+  width: 40vw;
+  max-width: 500px;
+  background-color: transparent;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+}
+
+.top-bar__input:focus {
+  outline: none;
+}
+
+.top-bar__submit-btn {
+  border: none;
+  border-radius: 0.5rem;
+  background-color: var(--gray-1);
+  font-size: 1rem;
+  color: white;
+  padding: 10px 20px 10px 20px;
+  cursor: pointer;
+}
+/*# sourceMappingURL=style.css.map */

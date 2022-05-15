@@ -1,0 +1,18 @@
+.result {
+    padding: 30px;
+
+    max-width: 600px;
+
+    &__url {
+        text-decoration: none;
+        color: var(--url);
+    }
+
+    &__title {
+        font-size: 2rem;
+    }
+
+    &__description {
+        margin-top: 1rem;
+    }
+}

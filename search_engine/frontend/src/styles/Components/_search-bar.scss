@@ -1,0 +1,31 @@
+.search-bar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border: 1px solid white;
+    border-radius: 3rem;
+
+    padding: 5px 10px 5px 10px;
+
+    &__icon {
+        font-size: 1.5rem;
+        margin-right: 5px;
+    }
+
+    &__input {
+        height: 2rem;
+        width: 70vw;
+        max-width: 500px;
+
+        background-color: transparent;
+        border: none;
+
+        color: white;
+        font-size: 1.5rem;
+
+        &:focus {
+            outline: none;
+        }
+    }
+}
